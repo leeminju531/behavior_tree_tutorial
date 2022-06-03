@@ -23,5 +23,8 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
-add_executable(tutorial1 src/Tutorial1_Create_a_tree/tutorial1.cpp)
+add_executable(tutorial1 src/Tutorial1_create_a_tree/main.cpp)
 target_link_libraries(tutorial1 ${catkin_LIBRARIES})
+
+add_executable(tutorial2 src/Tutorial2_basic_ports/main.cpp)
+target_link_libraries(tutorial2 ${catkin_LIBRARIES})

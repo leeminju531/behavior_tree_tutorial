@@ -1,0 +1,11 @@
+<root main_tree_to_execute = "MainTree" >
+    <BehaviorTree ID="MainTree">
+       <Sequence name="root_sequence">
+           <SaySomething     message="hello" />
+           <SaySomething2    message="this works too" />
+           <!-- key-value의 경우 {key_name}으로 나타냄. -->
+           <ThinkWhatToSay   text="{the_answer}"/> 
+           <SaySomething     message="{the_answer}" />
+       </Sequence>
+    </BehaviorTree>
+</root>
