@@ -17,8 +17,6 @@ catkin_package(
 #  DEPENDS system_lib
 )
 
-## Specify additional locations of header files
-## Your package locations should be listed before other locations
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
@@ -28,3 +26,7 @@ target_link_libraries(tutorial1 ${catkin_LIBRARIES})
 
 add_executable(tutorial2 src/Tutorial2_basic_ports/main.cpp)
 target_link_libraries(tutorial2 ${catkin_LIBRARIES})
+
+add_executable(tutorial3 src/Tutorial3_generic_ports/main.cpp)
+target_link_libraries(tutorial3 ${catkin_LIBRARIES})
+
