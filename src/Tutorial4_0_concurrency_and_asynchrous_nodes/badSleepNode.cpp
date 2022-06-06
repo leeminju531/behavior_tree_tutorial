@@ -38,7 +38,7 @@ class BadSleepNode2 : public BT::AsyncActionNode
 {
 public :
     BadSleepNode2(const std::string& name,const BT::NodeConfiguration& config)
-    : BT::ActionNodeBase(name,config)
+    : BT::AsyncActionNode(name,config)
     {}
     static BT::PortsList providedPorts()
     {
