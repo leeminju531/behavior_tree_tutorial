@@ -1,0 +1,33 @@
+<!-- 
+    to avoid name clashing in very large trees,
+any tree and subtree use a different instance of the Blackboard.
+we need to explicitly connect the ports of a tree to those of its subtrees.
+ 
+ This is done using the XMl tag ,
+  where the words internal/external refer respectively to a subtree and its parent.
+ -->
+<root main_tree_to_execute = "MainTree">
+
+    <BehaviorTree ID="MainTree">
+
+        <Sequence name="main_sequence">
+            <SetBlackboard output_key="move_goal" value="1;2;3" />
+            <SubTree ID="MoveRobot" target="move_goal" output="move_result" />
+            <SaySomething message="{move_result}"/>
+        </Sequence>
+
+    </BehaviorTree>
+
+    <BehaviorTree ID="MoveRobot">
+        <Fallback name="move_robot_main">
+            <SequenceStar>
+                <MoveBase       goal="{target}"/>
+                <SetBlackboard output_key="output" value="mission accomplished" />
+            </SequenceStar>
+            <ForceFailure> <!-- Fallback은 성공하면 바로 반환하기 때문에 해당 forceFail을 넣어준 듯-->
+                <SetBlackboard output_key="output" value="mission failed" />
+            </ForceFailure>
+        </Fallback>
+    </BehaviorTree>
+
+</root>
