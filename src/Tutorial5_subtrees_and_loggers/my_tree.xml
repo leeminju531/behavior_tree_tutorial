@@ -1,0 +1,35 @@
+<!-- 
+    The desired behavior is:
+
+If the door is open, PassThroughDoor.
+If the door is closed, try up to 4 times to OpenDoor and, then, PassThroughDoor.
+If it was not possible to open the closed door, PassThroughWindow. 
+
+-->
+
+<root main_tree_to_execute = "MainTree">
+
+    <BehaviorTree ID="DoorClosed">
+        <Sequence name="door_closed_sequence">
+            <Inverter>
+                <IsDoorOpen/>
+            </Inverter>
+            <RetryUntilSuccessful num_attempts="4">
+                <OpenDoor/>
+            </RetryUntilSuccessful>
+            <PassThroughDoor/>
+        </Sequence>
+    </BehaviorTree>
+
+    <BehaviorTree ID="MainTree">
+        <Fallback name="root_Fallback">
+            <Sequence name="door_open_sequence">
+                <IsDoorOpen/>
+                <PassThroughDoor/>
+            </Sequence>
+            <SubTree ID="DoorClosed"/>
+            <PassThroughWindow/>
+        </Fallback>
+    </BehaviorTree>
+
+</root>
