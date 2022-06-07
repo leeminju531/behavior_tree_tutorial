@@ -41,3 +41,6 @@ target_link_libraries(tutorial5 ${catkin_LIBRARIES})
 
 add_executable(tutorial6 src/Tutorial6_ports_remapping/main.cpp)
 target_link_libraries(tutorial6 ${catkin_LIBRARIES})
+
+add_executable(tutorial9 src/Tutorial9_coroutines/main.cpp)
+target_link_libraries(tutorial9 ${catkin_LIBRARIES})
