@@ -35,3 +35,9 @@ target_link_libraries(tutorial4 ${catkin_LIBRARIES})
 
 add_executable(tutorial4_2 src/Tutorial4_reactive_trees/main2.cpp)
 target_link_libraries(tutorial4_2 ${catkin_LIBRARIES})
+
+add_executable(tutorial5 src/Tutorial5_subtrees_and_loggers/main.cpp)
+target_link_libraries(tutorial5 ${catkin_LIBRARIES})
+
+add_executable(tutorial6 src/Tutorial6_ports_remapping/main.cpp)
+target_link_libraries(tutorial6 ${catkin_LIBRARIES})
